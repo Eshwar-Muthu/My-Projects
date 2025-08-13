@@ -1,0 +1,26 @@
+trigger Contacttrigger on Contact (before insert,after insert,before update,after update) {
+    
+    if(Trigger.isInsert && trigger.isBefore)//runs on before insert context,prevent insertion if both mobile and phone value is Null 
+    {
+     for (Contact c : trigger.new)
+    	{
+				if (c.Phone == NULL && c.MobilePhone == Null)
+                	c.Phone.addError('Please enter either phone or mobile number');
+        		else if (c.Phone == NULL && c.MobilePhone != NULL)
+                	c.Phone=c.MobilePhone;
+    	}   
+    }
+    
+    if(Trigger.isUpdate && trigger.isBefore)// Runs before update prevents change in email address
+    {
+        for (Contact c : Trigger.new)
+    	{
+        	Contact c_Old = Trigger.oldMap.get(c.Id);
+        	if(c_Old.Email != Null && c.email != c_Old.email)
+        	{
+            	c.email.addError('Please do not change the email Id');
+        	}
+    	}
+    }
+    
+}
