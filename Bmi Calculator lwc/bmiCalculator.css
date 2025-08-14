@@ -1,0 +1,70 @@
+.App{
+    min-height: 100vh;
+    background-color: rgb(33, 197, 153);
+    padding: 20px;
+    background-image: url(/sfsites/c//resource/bmiCalculator);
+        background-size: cover;
+    background-repeat: no-repeat;
+
+}
+    
+.Box{
+     
+    max-width: 420px;
+    text-align: center;
+    background-color: #0b0d21;
+    color: white;
+    padding: 15px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+
+}
+h1{
+    font-size: larger;
+    padding: 10px 0;
+    font-family: -webkit-body;
+    font-weight: 500;
+    color: aquamarine;
+    text-align: center;
+    text-shadow: 0 0 10px aqua;
+}
+
+.Info section
+{
+    padding: 20px;
+    color:blueviolet;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: medium;
+    text-align: center;
+}
+h2{
+    font-size: larger;
+    padding: 5px 0;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: azure;
+    text-align: center;
+    text-shadow: 0 0 10px aqua;;
+}
+
+label{
+    color: burlywood;
+    padding: 10px;
+    font-size: medium;
+}
+
+button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(180, 18, 131);
+    color: rgb(12, 172, 39);
+    font-size: larger;
+}

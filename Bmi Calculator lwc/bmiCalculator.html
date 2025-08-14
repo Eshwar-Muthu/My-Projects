@@ -1,0 +1,61 @@
+<template>
+    <div class="App" >
+       
+        <div class="Box">
+            <h1 > This is BMI Calculator</h1>
+            <template if:true={result}> 
+                <section>
+                <div> your BMI value</div>
+                <div>{bmiValue}</div>
+                <div>Your BMI result is </div>
+                <div>{result}</div>
+                <button class="slds-button slds-button_neutral slds-button_stretch" onclick={reCalculate}> Re Calculate!</button>
+            </section>
+            </template>
+            
+
+           
+            
+            <template if:false={result}>
+                <form onsubmit={submitHandler}>
+                        <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-height">
+                        <abbr class="slds-required" title="required">* </abbr>Height(in CMs)</label>
+                        <div class="slds-form-element__control">
+                        <input type="Number" id="text-input-height" min="0" placeholder="Provide your height" required="" 
+                        class="slds-input" name ="height" value={height} onchange={inputHandler}/>
+                        </div>
+                        </div>
+                        <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-weight">
+                        <abbr class="slds-required" title="required">* </abbr>Weight(in KGs)</label>
+                        <div class="slds-form-element__control">
+                        <input type="number" id="text-input-weight" min="0" placeholder="Provide your Weight" required=""
+                        class="slds-input" name="weight" value={weight} onchange={inputHandler}/>
+                        </div>
+                        </div>
+                        <button class="slds-button slds-button_neutral slds-button_stretch">Lets Calculate!</button>
+            </form>
+            </template>
+            
+            
+            <div class="Info section">
+                <h2>What is BMI</h2>
+                <P class="slds-m-bottom_large">BMI, or Body Mass Index, is a measure of body fat based on height and weight</P>
+                <P class="slds-m-bottom_large">It's a common tool used to estimate whether a person's weight falls within a healthy range for their height.</P>
+                <h3 class="slds-text-color_error slds-text-heading_medium">Less than 18.5</h3>
+                <P class="slds-m-bottom_large">You are Underweight, get some gains </P>
+                <h3 class="slds-text-color_success slds-text-heading_medium">Between 18.5 to 24.9</h3>
+                <p class="slds-m-bottom_large">You are Optimum  weight range, Excellent!</p>
+                <h3 class="slds-text-color_error slds-text-heading_medium">Between 25 to 30</h3>
+                <P class="slds-m-bottom_large">You are Overweight,time to loose those extra kilos</P>
+                <h3 class="slds-text-color_error slds-text-heading_medium">Greater than 30</h3>
+                <P class="slds-m-bottom_large">You are Obese ,Lose Weight ASAP FATTY </P>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</template>
