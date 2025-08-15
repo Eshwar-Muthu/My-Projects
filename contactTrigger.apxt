@@ -23,4 +23,50 @@ trigger Contacttrigger on Contact (before insert,after insert,before update,afte
     	}
     }
     
+    if(trigger.isUpdate && trigger.isAfter) // Runs after update , if title value is changed , an relevant task is created 
+    {
+        List<Task> taskToInsert = new List<Task>();
+        for (Contact c : Trigger.new)
+        {
+            Contact c_Old = Trigger.oldMap.get(c.Id);
+            if(c.title != c_Old.title)
+            {
+                Task t = new Task();
+                t.whoid = c.ID;
+                t.subject = 'Title of the contact has been updated';
+                t.ActivityDate = Date.Today();
+                t.Priority = 'High';
+                t.Status = 'In Progress';
+                
+                taskToInsert.add(t);
+            }
+        }
+        Insert  taskToInsert;
+    }
+   if(Trigger.isInsert && Trigger.isAfter)// Runs after insert , if the email field ends with '.com' and no account is Linked then an sample account is Linked to the contact created
+   {
+       Account acc = [select id,Name from Account where Name ='Dickenson plc'];
+       System.debug('The result of the Query is ->'+ acc);
+       List <Contact> conToUpdate = New List <Contact>();
+       for(Contact c : Trigger.new)
+       {
+          if(c.Email != Null && c.Email.toLowerCase().endswith('.com'))
+          {
+            if(c.AccountId == Null)
+            {
+                Contact newContact = New Contact();
+                newContact.Id = C.Id;
+                newContact.AccountId=acc.Id;
+                //c.AccountId = acc.Id;
+                conToUpdate.add(newContact);
+                
+            }
+          }
+       }
+       system.debug('The contact records to update are ->'+ conToUpdate);
+       if(!conToUpdate.isEmpty())
+       {
+         Update conToUpdate;
+       }
+   }
 }
