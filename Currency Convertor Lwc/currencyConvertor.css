@@ -1,0 +1,44 @@
+.custom-card
+{
+    background-color: #7b1ec8c6;
+    max-width: 565px;
+    margin-top: auto;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.container
+{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 55vh;
+    padding: 20px;
+}
+
+
+.custom-submit
+{
+    background: darkblue;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.custom2-card
+{
+    justify-content: center;
+    
+    max-width: 565px;;
+}
+
+.currency-App
+{
+    background-image: url(/sfsites/c//resource/currecnyConvertorBg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    
+    
+}
